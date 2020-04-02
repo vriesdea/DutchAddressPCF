@@ -1,7 +1,6 @@
 import { postcodeKey } from "./secret";
 /* secret.ts contains:
  * export const postcodeKey = "your-pro6pp-api-key";
- * export const kvkKey = "your-kvk-api-key";
  */
 
 const postcodeUrl = "https://api.pro6pp.nl/v2";
@@ -106,7 +105,10 @@ export class PostcodeArgs {
     public postcode: string | null = null;
     public street: string | null = null;
 
-    private constructor(callback: any, mode: number, object: any) {
+    // mode: 1 = autocomplete api
+    // mode: 2 = suggest api
+
+    private constructor(object: any, callback: any, mode: number) {
         this.callback = callback;
         this.mode = mode;
         this.object = object;
@@ -134,14 +136,14 @@ export class PostcodeArgs {
     }
 
     public static buildComplete(object: any, callback: (item: IPostcodeComplete | null, args: PostcodeArgs) => void, postcode: string, number: string): PostcodeArgs {
-        let args = new PostcodeArgs(callback, 1, object);
+        let args = new PostcodeArgs(object, callback, 1);
         args.number = number;
         args.postcode = postcode;
         return args;
     }
 
     public static buildSuggest(object: any, callback: (item: IPostcodeSuggestion[] | null, args: PostcodeArgs) => void, city: string, street: string | null = null, number: string | null = null): PostcodeArgs {
-        let args = new PostcodeArgs(callback, 2, object);
+        let args = new PostcodeArgs(object, callback, 2);
         args.city = city;
         args.number = number;
         args.street = street;

@@ -18,9 +18,9 @@
     <property name="PostcodeProperty" display-name-key="PostcodeProperty_Display_Key" description-key="PostcodeProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="true" />
     <resources>
       <code path="index.ts" order="1"/>
-      <css path="style.css" order="99" />
-      <resx path="control.1033.resx" version="1.0.0" />
-      <resx path="control.1043.resx" version="1.0.0" />
+      <css path="AddressLookup.css" order="99" />
+      <resx path="AddressLookup.1033.resx" version="1.0.0" />
+      <resx path="AddressLookup.1043.resx" version="1.0.0" />
     </resources>
     <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
     <feature-usage>

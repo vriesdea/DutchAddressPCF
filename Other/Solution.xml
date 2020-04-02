@@ -4,8 +4,8 @@
     <!-- Unique Name of Cds Solution-->
     <UniqueName>DutchAddress</UniqueName>
     <LocalizedNames>
-      <LocalizedName description="Dutch Address Lookup" languagecode="1033" />
-      <LocalizedName description="Nederlandse Adressenzoeker" languagecode="1043" />
+      <LocalizedName description="Dutch Address" languagecode="1033" />
+      <LocalizedName description="Nederlandse Adressen" languagecode="1043" />
     </LocalizedNames>
     <Descriptions />
     <Version>1.0.20</Version>
