@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="PcfControls" version="1.0.20" constructor="AddressLookup" display-name-key="AddressLookup_Display_Key" description-key="AddressLookup_Description_Key" control-type="standard">
+    <property name="PremiseOption" display-name-key="PremiseOption_Display_Key" description-key="PremiseOption_Description_Key" of-type="Enum" usage="input" default-value="Separated" required="false">
+      <value name="Combined" display-name-key="PremiseOption_Combined_Display_Key" description-key="PremiseOption_Combined_Description_Key">Combined</value>
+      <value name="Separated" display-name-key="PremiseOption_Separated_Display_Key" description-key="PremiseOption_Separated_Description_Key">Separated</value>
+    </property>
+    <property name="RangeOption" display-name-key="RangeOption_Display_Key" description-key="RangeOption_Description_Key" of-type="Enum" usage="input" default-value="Single" required="false">
+      <value name="Simple" display-name-key="RangeOption_Simple_Display_Key" description-key="RangeOption_Simple_Description_Key">Simple</value>
+      <value name="Range" display-name-key="RangeOption_Range_Display_Key" description-key="RangeOption_Range_Description_Key" default="true">Range</value>
+    </property>
+    <property name="CityProperty" display-name-key="CityProperty_Display_Key" description-key="CityProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="StreetProperty" display-name-key="StreetProperty_Display_Key" description-key="StreetProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="NumberProperty" display-name-key="NumberProperty_Display_Key" description-key="NumberProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="PremiseProperty" display-name-key="PremiseProperty_Display_Key" description-key="PremiseProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="NumberToProperty" display-name-key="NumberToProperty_Display_Key" description-key="NumberToProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="PremiseToProperty" display-name-key="PremiseToProperty_Display_Key" description-key="PremiseToProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="PostcodeProperty" display-name-key="PostcodeProperty_Display_Key" description-key="PostcodeProperty_Description_Key" of-type="SingleLine.Text" usage="bound" required="true" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="style.css" order="99" />
+      <resx path="control.1033.resx" version="1.0.0" />
+      <resx path="control.1043.resx" version="1.0.0" />
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>

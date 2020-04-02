@@ -1,0 +1,61 @@
+.canvas { 
+    padding: 7px 10px 0 10px;
+}
+
+.canvas input {
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 3px 5px 5px 5px;
+    width: 100%;
+}
+
+.canvas-detail {
+    background-color: lightgray;
+    border-radius: 15px;
+    margin: 15px 0 0 0;
+}
+
+.canvas-detail p {
+    display: inline-block;
+    margin: 15px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.canvas-ready {
+    border: 1px solid gray;
+    margin: 3px 0;
+}
+
+.dropdown {
+    border: 0;
+    border-bottom: 1px solid gray;
+    margin: 3px 0;
+}
+    .dropdown.errors {
+        background-color: #ffcccc;
+    }
+    .dropdown.success {
+        background-color: #ccffcc;
+    }
+
+.dropdown-list {
+    border: 1px solid gray;
+    list-style-type: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+
+    .dropdown-list li {
+        background: #fffddf;
+        border-bottom: 1px solid gray;
+        cursor: pointer;
+        display: block;
+        margin: 0;
+        padding: 2px 10px;
+        text-align: left;
+    }
+
+    .dropdown-list li.focus {
+        background-color: lightblue;
+    }
