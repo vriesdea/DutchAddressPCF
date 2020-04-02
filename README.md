@@ -19,3 +19,15 @@ Current fields:
 - PostcodeProperty  (bound field)
 - PremiseOption     (input)
 - RangeOption       (input)
+
+This project has been build using Visual Studio 2019.
+To get started follow the instructions:
+- Install NPM (this project uses 12.16.1 LTS)
+- Install .NET Framework 4.6.2 Developer Pack
+- Install PowerApps CLI and update to the latest version
+
+See also:
+https://powermaverick.dev/2019/05/18/create-custom-controls-using-powerapp-component-framework/
+https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/powerapps-cli
+https://docs.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-typescript
+https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf
