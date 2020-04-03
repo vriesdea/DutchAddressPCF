@@ -1,7 +1,7 @@
 # DutchAddressPCF
 Dutch Address Control for PowerApps Component Framework.
 
-This control uses the Pro6PP APIv2:
+This control uses the [Pro6PP APIv2](https://www.pro6pp.nl/docs/v2/redoc):
 - for suggesting cityname, streetname and number and/or premise
 - for autocomplete cityname and streetname from a postcalcode/number
 
