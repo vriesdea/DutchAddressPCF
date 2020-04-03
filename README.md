@@ -10,7 +10,7 @@ This control uses the Pro6PP APIv2:
 - PremiseOption: seperate output for number and premise or combined into one field
 - RangeOption: use a range of numbers (for example an apartment building or project)
 
-# Fields (bound properties)
+## Fields (bound properties)
 
 - CityProperty
 - StreetProperty
