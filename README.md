@@ -36,8 +36,13 @@ $ npm install
 $ npm start watch
 ```
 
-## See also:
+## See also
 https://powermaverick.dev/2019/05/18/create-custom-controls-using-powerapp-component-framework/<br>
 https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/powerapps-cli<br>
 https://docs.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-typescript<br>
 https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf<br>
+
+## License
+
+license: unlicense
+A. de Vries, The Netherands, 2020
