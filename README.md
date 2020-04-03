@@ -20,14 +20,21 @@ This control uses the [Pro6PP APIv2](https://www.pro6pp.nl/docs/v2/redoc):
 - NumberToProperty: used only if RangeOption = Range
 - PremiseToProperty: used only if RangeOption = Range and PremiseOption = Seperated 
 
-## Install
+## Install (on Windows)
 
-This project has been build using Visual Studio 2019.
-To get started download and install:
 - .NET Framework 4.6.2 Developer Pack
-- Visual Studio 2019
-- NPM (12.16.1 LTS)
-- PowerApps CLI
+- Visual Studio (2019 or later)
+- NPM (12.16.1 LTS or later LTS)
+- PowerApps CLI (1.1.6 or later)
+
+## Usage
+1. Open project in Visual Studio using Open > Folder
+2. Open Node.js Command Prompt
+3. Goto folder *\<yourpath\>*/DutchAddress/AddressLookup/
+```
+$ npm install
+$ npm start watch
+```
 
 ## See also:
 https://powermaverick.dev/2019/05/18/create-custom-controls-using-powerapp-component-framework/<br>
