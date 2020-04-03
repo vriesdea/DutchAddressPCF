@@ -5,11 +5,6 @@ This control uses the [Pro6PP APIv2](https://www.pro6pp.nl/docs/v2/redoc):
 - for suggesting cityname, streetname and number and/or premise
 - for autocomplete cityname and streetname from a postcalcode/number
 
-## Options (input properties)
-
-- PremiseOption: seperate output for number and premise or combined into one field
-- RangeOption: use a range of numbers (for example an apartment building or project)
-
 ## Fields (bound properties)
 
 - CityProperty
@@ -19,6 +14,11 @@ This control uses the [Pro6PP APIv2](https://www.pro6pp.nl/docs/v2/redoc):
 - PostcodeProperty
 - NumberToProperty: used only if RangeOption = Range
 - PremiseToProperty: used only if RangeOption = Range and PremiseOption = Seperated 
+
+## Options (input properties)
+
+- PremiseOption: seperate output for number and premise or combined into one field
+- RangeOption: use a range of numbers (for example an apartment building or project)
 
 ## Install (on Windows)
 
