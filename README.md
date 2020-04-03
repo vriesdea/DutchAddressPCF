@@ -44,5 +44,5 @@ https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-
 
 ## License
 
-license: unlicense
-A. de Vries, The Netherlands, 2020
+license: unlicense<br>
+*A. de Vries, The Netherlands, 2020*
