@@ -1,33 +1,48 @@
 # DutchAddressPCF
-Dutch Address Control for PowerApps Component Framework
+Dutch Address Control for PowerApps Component Framework.
 
-This control uses the Pro6PP APIv2:
+This control uses the [Pro6PP APIv2](https://www.pro6pp.nl/docs/v2/redoc):
 - for suggesting cityname, streetname and number and/or premise
 - for autocomplete cityname and streetname from a postcalcode/number
 
-A few options can be configured:
-- seperate output for number and premise or combined into one field
-- use a range of numbers (for example an apartment building or project)
+## Fields (bound properties)
 
-Current fields:
-- CityProperty      (bound field)
-- StreetProperty    (bound field)
-- NumberProperty    (bound field)
-- PremiseProperty   (bound field)
-- NumberToProperty  (bound field)
-- PremiseToProperty (bound field)
-- PostcodeProperty  (bound field)
-- PremiseOption     (input)
-- RangeOption       (input)
+- CityProperty
+- StreetProperty
+- NumberProperty
+- PremiseProperty: used only if PremiseOption = Seperated
+- PostcodeProperty
+- NumberToProperty: used only if RangeOption = Range
+- PremiseToProperty: used only if RangeOption = Range and PremiseOption = Seperated 
 
-This project has been build using Visual Studio 2019.
-To get started follow the instructions:
-- Install NPM (this project uses 12.16.1 LTS)
-- Install .NET Framework 4.6.2 Developer Pack
-- Install PowerApps CLI and update to the latest version
+## Options (input properties)
 
-See also:
-https://powermaverick.dev/2019/05/18/create-custom-controls-using-powerapp-component-framework/
-https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/powerapps-cli
-https://docs.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-typescript
-https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf
+- PremiseOption: seperate output for number and premise or combined into one field
+- RangeOption: use a range of numbers (for example an apartment building or project)
+
+## Install (on Windows)
+
+- .NET Framework 4.6.2 Developer Pack
+- Visual Studio (2019 or later)
+- NPM (12.16.1 LTS or later LTS)
+- PowerApps CLI (1.1.6 or later)
+
+## Usage
+1. Open project in Visual Studio using Open > Folder
+2. Open Node.js Command Prompt
+3. Goto folder *\<yourpath\>*/DutchAddress/AddressLookup/
+```
+$ npm install
+$ npm start watch
+```
+
+## See also
+https://powermaverick.dev/2019/05/18/create-custom-controls-using-powerapp-component-framework/<br>
+https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/powerapps-cli<br>
+https://docs.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-typescript<br>
+https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf<br>
+
+## License
+
+license: unlicense<br>
+*A. de Vries, The Netherlands, 2020*
