@@ -10,6 +10,8 @@ import { PremiseOptions, RangeOptions, Tools } from "../tools";
 export class Canvas {
 
     private detail: HTMLDivElement;
+    private detailLat: number | null = null;
+    private detailLng: number | null = null;
     private owner: HTMLElement;
 
     constructor(owner: HTMLElement) {
@@ -33,6 +35,10 @@ export class Canvas {
 
     private div: HTMLDivElement;
     public get Div() { return this.div; }
+
+    public get Latitude(): number { return this.detailLat ?? 0; }
+
+    public get Longitude(): number { return this.detailLng ?? 0; }
 
     private number: NumberDropDown;
     public get Number() { return this.number; }
@@ -109,8 +115,12 @@ export class Canvas {
                 "Gemeente: " + item.municipality + "<br />" +
                 "District: " + item.district + "<br />" +
                 "Omgeving: " + item.neighbourhood + "</p>";
+            this.detailLat = item.lat;
+            this.detailLng = item.lng;
         } else {
             this.detail.innerHTML = "";
+            this.detailLat = null;
+            this.detailLng = null;
         }
     }
 
@@ -139,11 +149,11 @@ export class Canvas {
         let valid = Tools.isValidPostcode(this.postcode.Value);
         if (valid) {
             let args1 = PostcodeArgs.buildComplete(this, this.onValidate, valid, this.number.Value);
-            args1.compare = true;
+            args1.param = 1;
             Postcode.run(args1);
 
             let args2 = PostcodeArgs.buildComplete(this, this.onValidateTo, valid, this.numberTo.Value);
-            args2.compare = true;
+            args2.param = 1;
             Postcode.runAsync(args2);
         }
     }
@@ -173,7 +183,7 @@ export class Canvas {
         if (item == null) {
             // do nothing
         } else {
-            canvas.ValidateItem(item, args.compare);
+            canvas.ValidateItem(item, (args.param ? true : false));
         }
     }
 

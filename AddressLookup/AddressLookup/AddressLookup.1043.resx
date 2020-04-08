@@ -153,58 +153,64 @@
   <data name="PremiseProperty_Display_Key" xml:space="preserve">
     <value>Huisnummer extensie</value>
   </data>
-  <data name="RangeProperty_Description_Key" xml:space="preserve">
-    <value>Geef aan dat er een range nodig is (van/ tot)</value>
-  </data>
-  <data name="RangeProperty_Display_Key" xml:space="preserve">
-    <value>Range indicatie</value>
-  </data>
   <data name="PremiseOption_Combined_Description_Key" xml:space="preserve">
-    <value>(T) Output Premise into Number property</value>
+    <value>Optie om huisnummer en extensie te combineren naar nummerveld</value>
   </data>
   <data name="PremiseOption_Combined_Display_Key" xml:space="preserve">
     <value>Gecombineerd</value>
   </data>
   <data name="PremiseOption_Description_Key" xml:space="preserve">
-    <value>(T) Premise number formatting</value>
+    <value>Opties om huisnummer en extensie te splitsen of combineren</value>
   </data>
   <data name="PremiseOption_Display_Key" xml:space="preserve">
-    <value>(T) Premise number output options</value>
+    <value>Extensie uitvoeropties</value>
   </data>
   <data name="PremiseOption_Separated_Description_Key" xml:space="preserve">
-    <value>(T) Output Premise and Number into separated properties</value>
+    <value>Optie om huisnummer en extensie uit te voeren naar losse velden</value>
   </data>
   <data name="PremiseOption_Separated_Display_Key" xml:space="preserve">
     <value>Separaat</value>
   </data>
   <data name="RangeOption_Description_Key" xml:space="preserve">
-    <value>(T) Range Description Key</value>
+    <value>Opties om een range op te geven</value>
   </data>
   <data name="RangeOption_Display_Key" xml:space="preserve">
-    <value>(T) Range Display Key</value>
+    <value>Range indicatie</value>
   </data>
   <data name="RangeOption_Range_Description_Key" xml:space="preserve">
-    <value>(T) Range Display Key</value>
+    <value>Optie voor dubbele huisnummers</value>
   </data>
   <data name="RangeOption_Range_Display_Key" xml:space="preserve">
     <value>Range</value>
   </data>
   <data name="RangeOption_Simple_Description_Key" xml:space="preserve">
-    <value>(T) Simple Display Key</value>
+    <value>Optie voor een enkel huisnummer</value>
   </data>
   <data name="RangeOption_Simple_Display_Key" xml:space="preserve">
-    <value>Simple</value>
+    <value>Simpel</value>
   </data>
   <data name="NumberPropertyTo_Description_Key" xml:space="preserve">
-    <value>(T) Connecting street number</value>
+    <value>Verbinding met huisnummer range</value>
   </data>
   <data name="NumberPropertyTo_Display_Key" xml:space="preserve">
-    <value>(T) Street number</value>
+    <value>Tot huisnummer</value>
   </data>
   <data name="PremiseToProperty_Description_Key" xml:space="preserve">
-    <value>(T) Connecting dutch premise number (extension)</value>
+    <value>Verbinding met huisnumber extensie range</value>
   </data>
   <data name="PremiseToProperty_Display_Key" xml:space="preserve">
-    <value>(T) Premise number</value>
+    <value>Tot huisnummer extensie</value>
+  </data>
+  <data name="LatitudeProperty_Description_Key" xml:space="preserve">
+    <value>Breedtegraad</value>
+  </data>
+  <data name="LatitudeProperty_Display_Key" xml:space="preserve">
+    <value>Verbinding met een breedtegraad veld</value>
+  </data>
+  <data name="LongitudeProperty_Description_Key" xml:space="preserve">
+    <value>Lengtegraad</value>
+  </data>
+  <data name="LongitudeProperty_Display_Key" xml:space="preserve">
+    <value>Verbinding met een lengtegraad veld</value>
   </data>
 </root>

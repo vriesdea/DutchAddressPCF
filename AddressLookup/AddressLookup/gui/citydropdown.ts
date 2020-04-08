@@ -10,22 +10,21 @@ export class CityDropDown extends SuggestionDropDown {
 
     private canvas: Canvas;
 
-    constructor(owner: Canvas) {
+    public constructor(owner: Canvas) {
         super(owner.Div);
         this.canvas = owner;
         this.Input.placeholder = "plaatsnaam";
     }
 
-    public addSuggestion(item: IPostcodeSuggestion): HTMLLIElement {
+    public createSuggestion(item: IPostcodeSuggestion): HTMLLIElement {
         let municipality = (item.settlement == item.municipality ? "" : " (" + item.municipality + ")");
-        let obj = this.addItem(item.settlement + municipality + " - " + item.province, item.settlement);
-        return obj;
+        return super.createItem(item.settlement + municipality + " - " + item.province, item.settlement);
     }
 
-    public validate(compare: boolean): void {
+    public validate(param: number): void {
         if (this.Value.length > 1 && this.Status < DropDownStatus.Success) {
             let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.Value);
-            args.compare = compare;
+            args.param = param;
             Postcode.run(args);
         }
     }
@@ -45,7 +44,7 @@ export class CityDropDown extends SuggestionDropDown {
                 this.Value = "'s-Hertogenbosch";
             }
         }
-        this.validate(false);
+        this.validate(0);
     }
 
     protected onSelectedItem(element: HTMLLIElement): void {

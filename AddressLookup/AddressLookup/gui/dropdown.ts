@@ -104,7 +104,12 @@ export abstract class DropDownBase {
         }
     }
 
-    public addItem(value: string, key: string | null): HTMLLIElement {
+    public addItem(item: HTMLLIElement): HTMLLIElement {
+        this.list.appendChild(item);
+        return item;
+    }
+
+    public createItem(value: string, key: string | null): HTMLLIElement {
         let item = document.createElement("li");
         item.addEventListener("click", this.onItemClick.bind(this));
         item.addEventListener("mouseenter", this.onItemMouseEnter.bind(this));
@@ -112,7 +117,6 @@ export abstract class DropDownBase {
         if (key != null) {
             item.setAttribute("data-key", key);
         }
-        this.list.appendChild(item);
         return item;
     }
 
@@ -166,7 +170,6 @@ export abstract class DropDownBase {
 
     protected onFocusIn(event: FocusEvent): void {
         this.input.select();
-        this.showList();
     }
 
     protected onFocusOut(event: FocusEvent): void {

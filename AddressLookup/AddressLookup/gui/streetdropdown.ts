@@ -13,8 +13,8 @@ export class StreetDropDown extends SuggestionDropDown {
         this.Input.placeholder = "straatnaam";
     }
 
-    public addSuggestion(item: IPostcodeSuggestion): HTMLLIElement {
-        let obj = this.addItem(item.street + ", " + item.settlement, item.street);
+    public createSuggestion(item: IPostcodeSuggestion): HTMLLIElement {
+        let obj = super.createItem(item.street + ", " + item.settlement, item.street);
         return obj;
     }
 
@@ -22,10 +22,10 @@ export class StreetDropDown extends SuggestionDropDown {
         return items.filter((item, index, self) => self.findIndex(found => (found.settlement === item.settlement && found.street === item.street)) === index);
     }
 
-    public validate(compare: boolean): void {
+    public validate(param: number): void {
         if (this.Value.length > 0 && this.canvas.City.Status > DropDownStatus.Failure && this.Status < DropDownStatus.Success) {
             let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.canvas.City.Value, this.Value, null);
-            args.compare = compare;
+            args.param = param;
             Postcode.run(args);
         }
     }
@@ -38,7 +38,7 @@ export class StreetDropDown extends SuggestionDropDown {
         super.onInput(event);
         this.canvas.PostcodeMode = false;
         this.canvas.ResetStatus(true, true, false, true);
-        this.validate(false);
+        this.validate(0);
     }
 
     protected onSelectedItem(element: HTMLLIElement) {

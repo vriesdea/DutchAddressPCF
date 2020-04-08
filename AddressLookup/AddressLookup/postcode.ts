@@ -42,6 +42,7 @@ export class Postcode {
     private static busy: boolean = false;
 
     static run(args: PostcodeArgs): void {
+        console.log(args);
         if (Postcode.busy) {
             console.log("aborting postcode fetch");
             Postcode.controller.abort();
@@ -55,8 +56,9 @@ export class Postcode {
                 if (response.status == 200) {
                     return response.json();
                 } else {
-                    console.error(response);
-                    args.callback(args.object, null);
+                    console.error("response" + (response ? " status " + response.status : "null"));
+                    console.log(response);
+                    args.callback(null, args);
                     Postcode.busy = false;
                 }
             })
@@ -66,9 +68,11 @@ export class Postcode {
             })
             .catch((error: any) => {
                 if (error.name == "AbortError") {
-                    console.error("fetch aborted");
+                    console.log("fetch aborted");
+                    console.log(error);
                 } else {
-                    console.error("error: " + error);
+                    console.error("catched error");
+                    console.log(error);
                     args.callback(args.object, null);
                 }
                 Postcode.busy = false;
@@ -76,19 +80,20 @@ export class Postcode {
     }
 
     static runAsync(args: PostcodeArgs): void {
+        console.log(args);
         fetch(args.getUrl())
             .then((response) => {
                 if (response.status == 200) {
                     return response.json();
                 } else {
                     console.error(response);
-                    args.callback(args.object, null);
+                    args.callback(null, args);
                 }
             })
             .then((data: any) => { args.callback(data, args); })
             .catch((error: any) => {
                 console.error("error: " + error);
-                args.callback(args.object, null);
+                args.callback(null, args);
             });
     }
 
@@ -98,15 +103,17 @@ export class PostcodeArgs {
 
     public readonly callback: any;
     public city: string | null = null;
-    public compare: boolean = false;
     public readonly mode: number = 0;
     public number: string | null = null;
     public readonly object: any;
+    public param: number = 0;
     public postcode: string | null = null;
     public street: string | null = null;
 
-    // mode: 1 = autocomplete api
-    // mode: 2 = suggest api
+    // mode
+    // 1 = autocomplete api
+    // 2 = suggest api, suggests cities, streets and numbers
+    // 3 = suggest api, suggests numbers by postcode
 
     private constructor(object: any, callback: any, mode: number) {
         this.callback = callback;
@@ -131,6 +138,13 @@ export class PostcodeArgs {
                     query += "&streetNumberAndPremise=" + this.number;
                 }
             }
+        } else if (this.mode == 3) {
+            path = "/suggest/nl/number";
+            query = "&postalCode=" + this.postcode;
+            if (this.number) {
+                query += "&sstreetNumberAndPremise=" + this.number;
+            }
+
         }
         return postcodeUrl + path + "/?authKey=" + postcodeKey + query;
     }
@@ -147,6 +161,13 @@ export class PostcodeArgs {
         args.city = city;
         args.number = number;
         args.street = street;
+        return args;
+    }
+
+    public static buildSuggestPostal(object: any, callback: (item: IPostcodeSuggestion[] | null, args: PostcodeArgs) => void, postcode: string, number: string | null = null): PostcodeArgs {
+        let args = new PostcodeArgs(object, callback, 3);
+        args.number = number;
+        args.postcode = postcode;
         return args;
     }
 
