@@ -29,6 +29,7 @@ export interface IPostcodeSuggestion {
     lng: number,
     municipality: string,
     postalCode: string,
+    officialSettlement: string,
     province: string,
     settlement: string,
     street: string,
@@ -43,6 +44,7 @@ export class Postcode {
 
     static run(args: PostcodeArgs): void {
         console.log(args);
+        console.log(args.getUrl());
         if (Postcode.busy) {
             console.log("aborting postcode fetch");
             Postcode.controller.abort();
@@ -63,13 +65,15 @@ export class Postcode {
                 }
             })
             .then((data: any) => {
+                console.log('json:');
+                console.log(data);
                 args.callback(data, args);
                 Postcode.busy = false;
             })
             .catch((error: any) => {
                 if (error.name == "AbortError") {
-                    console.log("fetch aborted");
-                    console.log(error);
+                    console.log("fetch aborted:");
+                    console.log(args);
                 } else {
                     console.error("catched error");
                     console.log(error);
@@ -81,6 +85,7 @@ export class Postcode {
 
     static runAsync(args: PostcodeArgs): void {
         console.log(args);
+        console.log(args.getUrl());
         fetch(args.getUrl())
             .then((response) => {
                 if (response.status == 200) {
@@ -90,7 +95,11 @@ export class Postcode {
                     args.callback(null, args);
                 }
             })
-            .then((data: any) => { args.callback(data, args); })
+            .then((data: any) => {
+                console.log('json:');
+                console.log(data);
+                args.callback(data, args);
+            })
             .catch((error: any) => {
                 console.error("error: " + error);
                 args.callback(null, args);
@@ -129,20 +138,20 @@ export class PostcodeArgs {
             query = "&postalCode=" + this.postcode + "&streetNumberAndPremise=" + this.number;
         } else if (this.mode == 2) {
             path = "/suggest/nl/settlement";
-            query = "&settlement=" + this.city;
+            query = "&perPage=20&settlement=" + this.city?.replace("*", "%");
             if (this.street) {
-                query += "&street=" + this.street;
+                query += "&street=" + this.street?.replace("*", "%");
                 path = "/suggest/nl/street";
                 if (this.number) {
                     path = "/suggest/nl/streetNumberAndPremise";
-                    query += "&streetNumberAndPremise=" + this.number;
+                    query += "&streetNumberAndPremise=" + encodeURIComponent(this.number);
                 }
             }
         } else if (this.mode == 3) {
             path = "/suggest/nl/number";
-            query = "&postalCode=" + this.postcode;
+            query = "&perPage=20&postalCode=" + this.postcode;
             if (this.number) {
-                query += "&sstreetNumberAndPremise=" + this.number;
+                query += "&streetNumberAndPremise=" + this.number;
             }
 
         }

@@ -17,8 +17,8 @@ export class CityDropDown extends SuggestionDropDown {
     }
 
     public createSuggestion(item: IPostcodeSuggestion): HTMLLIElement {
-        let municipality = (item.settlement == item.municipality ? "" : " (" + item.municipality + ")");
-        return super.createItem(item.settlement + municipality + " - " + item.province, item.settlement);
+        let settlement = item.officialSettlement + (item.officialSettlement == item.municipality ? "" : " (" + item.municipality + ")");
+        return super.createItem(settlement + ", " + item.province, item.officialSettlement);
     }
 
     public validate(param: number): void {
@@ -26,6 +26,13 @@ export class CityDropDown extends SuggestionDropDown {
             let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.Value);
             args.param = param;
             Postcode.run(args);
+        }
+    }
+    public validateAsync(): void {
+        if (this.Value.length > 1 && this.Status < DropDownStatus.Success) {
+            let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.Value);
+            args.param = 2;
+            Postcode.runAsync(args);
         }
     }
 
@@ -37,13 +44,13 @@ export class CityDropDown extends SuggestionDropDown {
         super.onInput(event);
         this.canvas.PostcodeMode = false;
         this.canvas.ResetStatus(true, true, true, true);
-        if (this.Value.length > 7) {
-            if (this.Value.match(/den haag/i)) {
-                this.Value = "'s-Gravenhage";
-            } else if (this.Value.match(/den bosch/i)) {
-                this.Value = "'s-Hertogenbosch";
-            }
-        }
+        //if (this.Value.length > 7) {
+            //if (this.Value.match(/den haag/i)) {
+                //this.Value = "'s-Gravenhage";
+            //} else if (this.Value.match(/den bosch/i)) {
+                //this.Value = "'s-Hertogenbosch";
+            //}
+        //}
         this.validate(0);
     }
 
