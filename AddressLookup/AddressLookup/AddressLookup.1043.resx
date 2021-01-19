@@ -189,10 +189,10 @@
   <data name="RangeOption_Simple_Display_Key" xml:space="preserve">
     <value>Simpel</value>
   </data>
-  <data name="NumberPropertyTo_Description_Key" xml:space="preserve">
+  <data name="NumberToProperty_Description_Key" xml:space="preserve">
     <value>Verbinding met huisnummer range</value>
   </data>
-  <data name="NumberPropertyTo_Display_Key" xml:space="preserve">
+  <data name="NumberToProperty_Display_Key" xml:space="preserve">
     <value>Tot huisnummer</value>
   </data>
   <data name="PremiseToProperty_Description_Key" xml:space="preserve">

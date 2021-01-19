@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="PcfControls" version="1.0.25" constructor="AddressLookup" display-name-key="AddressLookup_Display_Key" description-key="AddressLookup_Description_Key" control-type="standard">
+  <control namespace="PcfControls" version="1.0.44" constructor="AddressLookup" display-name-key="AddressLookup_Display_Key" description-key="AddressLookup_Description_Key" control-type="standard">
+    <external-service-usage enabled="true">
+      <domain>api.pro6pp.nl</domain>
+    </external-service-usage>
     <property name="PremiseOption" display-name-key="PremiseOption_Display_Key" description-key="PremiseOption_Description_Key" of-type="Enum" usage="input" required="false">
       <value name="Combined" display-name-key="PremiseOption_Combined_Display_Key" description-key="PremiseOption_Combined_Description_Key" default="true">Combined</value>
       <value name="Separated" display-name-key="PremiseOption_Separated_Display_Key" description-key="PremiseOption_Separated_Description_Key">Separated</value>

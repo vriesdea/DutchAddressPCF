@@ -110,9 +110,9 @@ export class Canvas {
                 Tools.outputNumber(item.postalCode) + " " + item.settlement + "<br />" +
                 item.province + "</p>" +
              "<p>Bouwjaar: " + item.constructionYear + "<br />" +
-                "Oppervlakte: " + item.surfaceArea + " &#13217;</p>" +
-             "<p>Doel: " + item.purposes.join("; ") + "<br />" +
-                "Gemeente: " + item.municipality + "<br />" +
+                "Oppervlakte: " + item.surfaceArea + " &#13217;<br />" +
+                (item.purposes ? "<i>" + item.purposes.join("; ") + "</i>" : "") + "</p>" +
+             "<p>Gemeente: " + item.municipality + "<br />" +
                 "District: " + item.district + "<br />" +
                 "Omgeving: " + item.neighbourhood + "</p>";
             this.detailLat = item.lat;
@@ -146,23 +146,24 @@ export class Canvas {
 
     public Validate() {
         this.ResetStatus(true, true, true, true);
-        let valid = Tools.isValidPostcode(this.postcode.Value);
-        if (valid) {
-            let args1 = PostcodeArgs.buildComplete(this, this.onValidate, valid, this.number.Value);
-            args1.param = 1;
-            Postcode.run(args1);
-
-            let args2 = PostcodeArgs.buildComplete(this, this.onValidateTo, valid, this.numberTo.Value);
-            args2.param = 1;
-            Postcode.runAsync(args2);
+        let number = Tools.isValidNumber(this.number.Value);
+        let postcode = Tools.isValidPostcode(this.postcode.Value);
+        if (number && postcode) {
+            let args = PostcodeArgs.buildComplete(this, this.onValidate, postcode, number);
+            args.param = 1;
+            Postcode.run(args);
+        } else {
+            this.city.validateAsync();
+            this.street.validateAsync();
+            this.number.validateAsync();
         }
+        this.numberTo.validateAsync();
     }
 
     public ValidateItem(item: IPostcodeComplete, compare: boolean = false): void {
-        let number = Tools.formatNumber(item.streetNumber, item.premise);
         this.SetDetail(item);
+        let number = Tools.formatNumber(item.streetNumber, item.premise);
         if (compare) {
-            console.log("compare city to: " + item.settlement);
             this.city.validateValue(item.settlement);
             this.number.validateValue(number);
             this.postcode.validateValue(item.postalCode);
@@ -170,7 +171,6 @@ export class Canvas {
             //this.postcode.Status = (Tools.isValidPostcode(this.postcode.Value) == Tools.isValidPostcode(item.postalCode) ? DropDownStatus.Success : DropDownStatus.Neutral);
             //this.PostcodeMode = (this.postcode.Status == DropDownStatus.Success);
         } else {
-            console.log("set city to: " + item.settlement);
             this.SetCity(item.settlement, DropDownStatus.Success);
             this.SetNumber(number, DropDownStatus.Success);
             this.SetPostcode(item.postalCode, DropDownStatus.Success);

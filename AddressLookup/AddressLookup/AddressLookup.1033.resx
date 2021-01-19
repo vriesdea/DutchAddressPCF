@@ -189,10 +189,10 @@
   <data name="RangeOption_Simple_Display_Key" xml:space="preserve">
     <value>Simple</value>
   </data>
-  <data name="NumberPropertyTo_Description_Key" xml:space="preserve">
+  <data name="NumberToProperty_Description_Key" xml:space="preserve">
     <value>Bound to a Street Number field (Range To)</value>
   </data>
-  <data name="NumberPropertyTo_Display_Key" xml:space="preserve">
+  <data name="NumberToProperty_Display_Key" xml:space="preserve">
     <value>To street number</value>
   </data>
   <data name="PremiseToProperty_Description_Key" xml:space="preserve">

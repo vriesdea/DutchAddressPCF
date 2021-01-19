@@ -25,24 +25,18 @@ export abstract class SuggestionDropDown extends DropDownBase {
 
     protected onPostcodeSuggest(items: IPostcodeSuggestion[] | null, args: PostcodeArgs) {
         let dropdown = (args.object as SuggestionDropDown);
-        if (args.param) {
-            let found: boolean = false;
-            if (items) {
+        let found: boolean = false;
+        if (items) {
+            if (args.param) {
                 for (let item of items) {
                     if (dropdown.validateSuggestion(item)) {
+                        found = true;
                         if (args.param == 2) {
                             dropdown.selectItem(dropdown.createSuggestion(item));
                         }
-                        found = true;
                         break;
                     }
                 }
-            if (!found)
-                dropdown.Status = DropDownStatus.Failure;
-            }
-        } else {
-            if (items == null) {
-                dropdown.Status = DropDownStatus.Failure;
             } else {
                 let filter = dropdown.filterSuggestions(items);
                 let obj: HTMLLIElement | null = null;
@@ -55,9 +49,12 @@ export abstract class SuggestionDropDown extends DropDownBase {
                 } else {
                     dropdown.showList();
                 }
+                found = true;
             }
         }
+        if (!found) {
+            dropdown.Status = DropDownStatus.Failure;
+        }
     }
-
 
 }

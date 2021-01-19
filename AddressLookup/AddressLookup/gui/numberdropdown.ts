@@ -15,7 +15,7 @@ export class NumberDropDown extends SuggestionDropDown {
     }
 
     public createSuggestion(item: IPostcodeSuggestion): HTMLLIElement {
-        let obj = super.createItem(item.streetNumberAndPremise + ", " + item.street + ", " + item.settlement, item.streetNumberAndPremise);
+        let obj = super.createItem(item.streetNumberAndPremise + ", " + item.street + ", " + item.settlement + ", " + item.province, item.streetNumberAndPremise);
         obj.setAttribute("data-postcode", item.postalCode);
         return obj;
     }
@@ -39,19 +39,29 @@ export class NumberDropDown extends SuggestionDropDown {
     }
 
     public validate(param: number): void {
+        let number = Tools.isValidNumber(this.Value);
         if (this.canvas.PostcodeMode) {
-            let valid = Tools.isValidPostcode(this.canvas.Postcode.Value);
-            if (this.Value.length > 0 && valid) {
-                let args = PostcodeArgs.buildComplete(this, this.onPostcodeComplete, valid, this.Value);
+            let postcode = Tools.isValidPostcode(this.canvas.Postcode.Value);
+            if (number && postcode) {
+                let args = PostcodeArgs.buildComplete(this, this.onPostcodeComplete, postcode, number);
                 args.param = param;
                 Postcode.run(args);
             }
         } else {
-            if (this.Value.length > 0 && this.canvas.City.Status > DropDownStatus.Failure && this.canvas.Street.Status > DropDownStatus.Failure && this.Status < DropDownStatus.Success) {
-                let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.canvas.City.Value, this.canvas.Street.Value, this.Value);
+            if (number && this.Status < DropDownStatus.Success && this.canvas.City.Status > DropDownStatus.Failure && this.canvas.Street.Status > DropDownStatus.Failure) {
+                let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.canvas.City.Value, this.canvas.Street.Value, number);
                 args.param = param;
                 Postcode.run(args);
             }
+        }
+    }
+
+    public validateAsync(): void {
+        let number = Tools.isValidNumber(this.Value);
+        if (number && this.Status < DropDownStatus.Success) {
+            let args = PostcodeArgs.buildSuggest(this, this.onPostcodeSuggest, this.canvas.City.Value, this.canvas.Street.Value, number);
+            args.param = 2;
+            Postcode.runAsync(args);
         }
     }
 
@@ -87,9 +97,8 @@ export class NumberDropDown extends SuggestionDropDown {
 
     protected onSelectedItem(element: HTMLLIElement) {
         let value = element.getAttribute("data-postcode");
-        if (value) {
+        if (value && !this.range) {
             let args = PostcodeArgs.buildComplete(this, this.onPostcodeComplete, value, this.Value);
-            args.param = (this.range ? 1 : 0);
             Postcode.run(args);
         }
     }

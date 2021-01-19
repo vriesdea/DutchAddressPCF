@@ -85,8 +85,8 @@ export abstract class DropDownBase {
                         r = (this.status > DropDownStatus.Failure ? "success" : "errors");
                     }
             }
-            if (r != null) { this.input.classList.remove(r); }
-            if (a != null) { this.input.classList.add(a); }
+            if (r) { this.input.classList.remove(r); }
+            if (a) { this.input.classList.add(a); }
             this.status = value;
             this.onStatusChanged(value);
         }
@@ -188,7 +188,7 @@ export abstract class DropDownBase {
     private onItemMouseEnter(event: Event): void {
         let element = (event.srcElement as HTMLLIElement);
         let parent = element.parentNode;
-        if (parent != null) {
+        if (parent) {
             let value = Array.from(parent.children).indexOf(element);
             this.FocusIndex = value + 1;
         }
