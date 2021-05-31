@@ -8,7 +8,11 @@
       <LocalizedName description="Nederlandse Adressen" languagecode="1043" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.45</Version>
+<<<<<<<<< Temporary merge branch 1
+    <Version>1.0.43</Version>
+=========
+    <Version>1.0.44</Version>
+>>>>>>>>> Temporary merge branch 2
     <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>2</Managed>
     <Publisher>
