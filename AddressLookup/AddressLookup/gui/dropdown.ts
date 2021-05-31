@@ -174,7 +174,7 @@ export abstract class DropDownBase {
 
     protected onFocusOut(event: FocusEvent): void {
         if (this.listVisible) {
-            setTimeout(() => this.hideList(), 150);
+            setTimeout(this.hideList, 150);
         }
     }
 
