@@ -1,0 +1,76 @@
+2021-01-12 11:58:43.413 - Info	
+Packing C:\OneDrive\OneDrive - Comelit B.V\VS\DutchAddress\obj\Debug\Metadata to bin\Debug\DutchAddress.zip
+
+2021-01-12 11:58:43.446 - Info	Processing Component: Entities
+2021-01-12 11:58:43.450 - Info	Processing Component: Roles
+2021-01-12 11:58:43.454 - Info	Processing Component: Workflows
+2021-01-12 11:58:43.455 - Info	Processing Component: FieldSecurityProfiles
+2021-01-12 11:58:43.455 - Info	Processing Component: Templates
+2021-01-12 11:58:43.456 - Info	Processing Component: EntityMaps
+2021-01-12 11:58:43.457 - Info	Processing Component: EntityRelationships
+2021-01-12 11:58:43.471 - Info	Processing Component: OrganizationSettings
+2021-01-12 11:58:43.472 - Info	Processing Component: optionsets
+2021-01-12 11:58:43.472 - Info	Processing Component: CustomControls
+2021-01-12 11:58:43.498 - Info	 - PcfControls.AddressLookup
+2021-01-12 11:58:43.563 - Info	Processing Component: SolutionPluginAssemblies
+2021-01-12 11:58:43.564 - Info	Processing Component: EntityDataProviders
+2021-01-12 11:58:43.597 - Info	
+Managed Pack complete.
+
+2021-01-12 16:36:22.345 - Info	
+Packing C:\OneDrive\OneDrive - Comelit B.V\VS\DutchAddress\obj\Debug\Metadata to bin\Debug\DutchAddress.zip
+
+2021-01-12 16:36:22.390 - Info	Processing Component: Entities
+2021-01-12 16:36:22.397 - Info	Processing Component: Roles
+2021-01-12 16:36:22.404 - Info	Processing Component: Workflows
+2021-01-12 16:36:22.404 - Info	Processing Component: FieldSecurityProfiles
+2021-01-12 16:36:22.405 - Info	Processing Component: Templates
+2021-01-12 16:36:22.408 - Info	Processing Component: EntityMaps
+2021-01-12 16:36:22.408 - Info	Processing Component: EntityRelationships
+2021-01-12 16:36:22.431 - Info	Processing Component: OrganizationSettings
+2021-01-12 16:36:22.433 - Info	Processing Component: optionsets
+2021-01-12 16:36:22.434 - Info	Processing Component: CustomControls
+2021-01-12 16:36:22.513 - Info	 - PcfControls.AddressLookup
+2021-01-12 16:36:22.670 - Info	Processing Component: SolutionPluginAssemblies
+2021-01-12 16:36:22.674 - Info	Processing Component: EntityDataProviders
+2021-01-12 16:36:22.731 - Info	
+Managed Pack complete.
+
+2021-05-31 09:37:18.885 - Info	
+Packing C:\OneDrive\OneDrive - Comelit B.V\VS\DutchAddress\obj\Debug\Metadata to bin\Debug\DutchAddress.zip
+
+2021-05-31 09:37:18.921 - Info	Processing Component: Entities
+2021-05-31 09:37:18.925 - Info	Processing Component: Roles
+2021-05-31 09:37:18.929 - Info	Processing Component: Workflows
+2021-05-31 09:37:18.930 - Info	Processing Component: FieldSecurityProfiles
+2021-05-31 09:37:18.931 - Info	Processing Component: Templates
+2021-05-31 09:37:18.931 - Info	Processing Component: EntityMaps
+2021-05-31 09:37:18.932 - Info	Processing Component: EntityRelationships
+2021-05-31 09:37:18.952 - Info	Processing Component: OrganizationSettings
+2021-05-31 09:37:18.953 - Info	Processing Component: optionsets
+2021-05-31 09:37:18.954 - Info	Processing Component: CustomControls
+2021-05-31 09:37:18.979 - Info	 - PcfControls.AddressLookup
+2021-05-31 09:37:19.063 - Info	Processing Component: SolutionPluginAssemblies
+2021-05-31 09:37:19.064 - Info	Processing Component: EntityDataProviders
+2021-05-31 09:37:19.091 - Info	
+Managed Pack complete.
+
+2022-03-08 21:43:28.233 - Info	
+Packing C:\OneDrive\OneDrive - Comelit B.V\VS\DutchAddress\obj\Debug\Metadata to bin\Debug\DutchAddress.zip
+
+2022-03-08 21:43:28.256 - Info	Processing Component: Entities
+2022-03-08 21:43:28.260 - Info	Processing Component: Roles
+2022-03-08 21:43:28.264 - Info	Processing Component: Workflows
+2022-03-08 21:43:28.264 - Info	Processing Component: FieldSecurityProfiles
+2022-03-08 21:43:28.264 - Info	Processing Component: Templates
+2022-03-08 21:43:28.265 - Info	Processing Component: EntityMaps
+2022-03-08 21:43:28.266 - Info	Processing Component: EntityRelationships
+2022-03-08 21:43:28.272 - Info	Processing Component: OrganizationSettings
+2022-03-08 21:43:28.274 - Info	Processing Component: optionsets
+2022-03-08 21:43:28.274 - Info	Processing Component: CustomControls
+2022-03-08 21:43:28.291 - Info	 - PcfControls.AddressLookup
+2022-03-08 21:43:28.337 - Info	Processing Component: SolutionPluginAssemblies
+2022-03-08 21:43:28.339 - Info	Processing Component: EntityDataProviders
+2022-03-08 21:43:28.363 - Info	
+Managed Pack complete.
+
