@@ -23,9 +23,9 @@ This control uses the [Pro6PP APIv2](https://www.pro6pp.nl/docs/v2/redoc):
 ## Install (on Windows)
 
 - .NET Framework 4.6.2 Developer Pack
-- Visual Studio (2019 or later)
-- NPM (12.16.1 LTS or later LTS)
-- PowerApps CLI (1.1.6 or later)
+- Visual Studio (2022 or later)
+- NPM (16.14 LTS or later LTS)
+- PowerApps CLI (1.12 or later)
 
 ## Usage
 1. Open project in Visual Studio using Open > Folder

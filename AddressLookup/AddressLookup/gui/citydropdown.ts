@@ -44,17 +44,11 @@ export class CityDropDown extends SuggestionDropDown {
         super.onInput(event);
         this.canvas.PostcodeMode = false;
         this.canvas.ResetStatus(true, true, true, true);
-        //if (this.Value.length > 7) {
-            //if (this.Value.match(/den haag/i)) {
-                //this.Value = "'s-Gravenhage";
-            //} else if (this.Value.match(/den bosch/i)) {
-                //this.Value = "'s-Hertogenbosch";
-            //}
-        //}
         this.validate(0);
     }
 
     protected onSelectedItem(element: HTMLLIElement): void {
+        this.clearDelayedFocusOut();
         this.Status = DropDownStatus.Success;
         this.canvas.Street.setFocus();
     }

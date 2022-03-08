@@ -138,9 +138,9 @@ export class PostcodeArgs {
             query = "&postalCode=" + this.postcode + "&streetNumberAndPremise=" + this.number;
         } else if (this.mode == 2) {
             path = "/suggest/nl/settlement";
-            query = "&perPage=20&settlement=" + this.city?.replace("*", "%");
+            query = "&perPage=20&settlement=" + this.city?.replace("*", "%25");
             if (this.street) {
-                query += "&street=" + this.street?.replace("*", "%");
+                query += "&street=" + this.street?.replace("*", "%25");
                 path = "/suggest/nl/street";
                 if (this.number) {
                     path = "/suggest/nl/streetNumberAndPremise";

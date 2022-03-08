@@ -175,18 +175,19 @@ export abstract class DropDownBase {
     protected onFocusOut(event: FocusEvent): void {
         if (this.listVisible) {
             setTimeout(this.hideList, 150);
+            
         }
     }
 
     protected onInput(event: Event): void { }
 
     private onItemClick(event: Event): void {
-        let element = (event.srcElement as HTMLLIElement);
+        let element = (event.target as HTMLLIElement);
         this.selectItem(element);
     }
 
     private onItemMouseEnter(event: Event): void {
-        let element = (event.srcElement as HTMLLIElement);
+        let element = (event.target as HTMLLIElement);
         let parent = element.parentNode;
         if (parent) {
             let value = Array.from(parent.children).indexOf(element);

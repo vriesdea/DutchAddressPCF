@@ -18,9 +18,22 @@ export abstract class SuggestionDropDown extends DropDownBase {
         this.validate(1);
     }
 
+    private delayedFocusOut: NodeJS.Timeout | null;
+
+    protected clearDelayedFocusOut() {
+        if (this.delayedFocusOut != null) {
+            clearTimeout(this.delayedFocusOut);
+            this.delayedFocusOut = null;
+        }
+    }
+
     protected onFocusOut(event: FocusEvent) {
+        var that = this;
         super.onFocusOut(event);
-        this.validate(2);
+        this.delayedFocusOut = setTimeout(function () {
+            that.delayedFocusOut = null;
+            that.validate(2);
+        }, 250);
     }
 
     protected onPostcodeSuggest(items: IPostcodeSuggestion[] | null, args: PostcodeArgs) {

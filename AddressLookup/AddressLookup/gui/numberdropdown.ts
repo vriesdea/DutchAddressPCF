@@ -96,6 +96,7 @@ export class NumberDropDown extends SuggestionDropDown {
     }
 
     protected onSelectedItem(element: HTMLLIElement) {
+        this.clearDelayedFocusOut();
         let value = element.getAttribute("data-postcode");
         if (value && !this.range) {
             let args = PostcodeArgs.buildComplete(this, this.onPostcodeComplete, value, this.Value);

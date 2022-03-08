@@ -51,6 +51,7 @@ export class StreetDropDown extends SuggestionDropDown {
     }
 
     protected onSelectedItem(element: HTMLLIElement) {
+        this.clearDelayedFocusOut();
         this.Status = DropDownStatus.Success;
         this.canvas.Number.setFocus();
     }
