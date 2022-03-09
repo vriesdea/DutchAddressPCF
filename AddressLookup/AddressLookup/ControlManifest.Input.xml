@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="PcfControls" version="1.0.50" constructor="AddressLookup" display-name-key="AddressLookup_Display_Key" description-key="AddressLookup_Description_Key" control-type="standard">
+  <control namespace="PcfControls" version="1.0.51" constructor="AddressLookup" display-name-key="AddressLookup_Display_Key" description-key="AddressLookup_Description_Key" control-type="standard">
 <!--  <external-service-usage enabled="true">
         <domain>api.pro6pp.nl</domain>
       </external-service-usage> -->
